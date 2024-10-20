@@ -64,15 +64,4 @@ def extract_colors_from_cube(faces_images):
 
     return rubiks_cube
 
-current_directory = os.getcwd()
-
-# Paths to the images of each face
-faces = [
-    "images/u.png", "images/d.png", "images/f.png", 
-    "images/b.png", "images/l.png", "images/r.png"
-]
-
-# Call the function and get the rubik's cube state dictionary
-rubiks_cube_state = extract_colors_from_cube(faces)
-print(rubiks_cube_state)
 

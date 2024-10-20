@@ -3,6 +3,8 @@ from models.iddfs import Iddfs
 from models.idastar import IdaStar
 from models.bfs import Bfs
 from models.dfs import Dfs
+import colour_detect_module
+
 
 import time
 
@@ -25,39 +27,11 @@ default_state = {
     'R': [['B', 'B', 'B'], ['B', 'B', 'B'], ['B', 'B', 'B']]
 }
 
-
-scrambled_state = {
-    'D': [
-        ['G', 'W', 'Y'],
-        ['G', 'W', 'Y'],
-        ['G', 'W', 'B']
-    ],
-    'U': [
-        ['W', 'W', 'W'],
-        ['Y', 'Y', 'B'],
-        ['Y', 'Y', 'B']
-    ],
-    'R': [
-        ['R', 'R', 'B'],
-        ['G', 'G', 'Y'],
-        ['G', 'G', 'Y']
-    ],
-    'L': [
-        ['G', 'O', 'O'],
-        ['B', 'B', 'W'],
-        ['R', 'R', 'R']
-    ],
-    'F': [
-        ['B', 'B', 'W'],
-        ['R', 'R', 'O'],
-        ['Y', 'G', 'O']
-    ],
-    'B': [
-        ['O', 'O', 'O'],
-        ['R', 'O', 'O'],
-        ['R', 'B', 'W']
-    ]
-}
+faces = [
+    "images/u.png", "images/d.png", "images/f.png", 
+    "images/b.png", "images/l.png", "images/r.png"
+]
+scrambled_state = colour_detect_module.extract_colors_from_cube(faces)
 
 
 
@@ -67,24 +41,10 @@ scrambled_state = {
 # iddfs_solver.set_state(scrambled_state)
 # print(iddfs_solver.iddfs())
 
-
-
 iddfs_solver.set_state(scrambled_state)
 iddfs_solver.rotate_front_clockwise()
 
-# print(idastar_solver.state)
 
-
-# iddfs_solver.rotate_front_clockwise()
-# iddfs_solver.rotate_down_clockwise()
-# iddfs_solver.rotate_front_counterclockwise()
-# iddfs_solver.rotate_left_clockwise()
-# iddfs_solver.rotate_back_clockwise()
-
-
-
-
-# idastar_solver.print_state()
 start = time.time()
 print(iddfs_solver.iddfs())
 end = time.time()
