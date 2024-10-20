@@ -102,14 +102,17 @@ if st.button("Solve Cube"):
 
     # Show a loading spinner
     with st.spinner("Solving..."):
-        time.sleep(1)  # Simulate some delay
+        start_time = time.time() 
         solution = solver.idastar() if solver_option == 'IDA*' else solver.iddfs() if solver_option == 'IDDFS' else solver.bfs()
+        end_time = time.time()
     
+    time_taken = end_time - start_time
     # Display the solution
 
     st.info("Solution found!")
     steps_display = " ➔ ".join(solution)  # Join steps with arrows only between them
     st.balloons()
     st.success(steps_display)
+    st.warning(f"Time taken to solve: {time_taken:.2f} seconds")  # Format the time taken to 2 decimal places
 
 
