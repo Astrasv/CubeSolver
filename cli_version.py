@@ -44,9 +44,9 @@ scrambled_state = colour_detect_module.extract_colors_from_cube(faces)
 iddfs_solver.set_state(scrambled_state)
 iddfs_solver.rotate_front_clockwise()
 
+print(iddfs_solver.state)
+# start = time.time()
+# print(iddfs_solver.iddfs())
+# end = time.time()
 
-start = time.time()
-print(iddfs_solver.iddfs())
-end = time.time()
-
-print(end - start)
+# print(end - start)

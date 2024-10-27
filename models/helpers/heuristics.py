@@ -10,4 +10,3 @@ def heuristic(solver):
         for row in grid:
             total_distance += np.sum(row != solved_color)
     return total_distance
-

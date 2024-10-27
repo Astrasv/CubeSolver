@@ -1,7 +1,7 @@
 import numpy as np
-from cube import RubiksCube
+from Cube3x3.cube import RubiksCube3x3
 
-class Rotations(RubiksCube):
+class Rotations3x3(RubiksCube3x3):
     def __init__(self):
         super().__init__()
     

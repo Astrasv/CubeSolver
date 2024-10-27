@@ -1,5 +1,5 @@
 import numpy as np
-class RubiksCube:
+class RubiksCube3x3:
     def __init__(self):
         # Cube represented as 6 faces with 9 stickers each (3x3 grid per face)
         # Faces: U (Up), D (Down), L (Left), R (Right), F (Front), B (Back)

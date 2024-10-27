@@ -1,5 +1,5 @@
 import numpy as np
-def get_successors(rotator):
+def get_successors_3x3(rotator):
     """Generate all successors by applying all possible moves."""
     moves = [
         ('Front Clockwise', rotator.rotate_front_clockwise),
