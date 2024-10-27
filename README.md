@@ -1,5 +1,7 @@
 # Rubik's Cube Solver
 
+[a link](https://cubesolver.streamlit.app/)
+
 ## Overview
 
 This project is a web application built using Streamlit that provides a user-friendly interface for solving Rubik's Cubes of sizes 2x2 and 3x3. Users can input the scrambled state of the cube by selecting colors for each face and then choose from different solving algorithms to find the solution.
