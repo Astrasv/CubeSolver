@@ -1,6 +1,7 @@
 # Rubik's Cube Solver
 
-[a link](https://cubesolver.streamlit.app/)
+Hosted Application
+[Application Link](https://cubesolver.streamlit.app/)
 
 ## Overview
 
