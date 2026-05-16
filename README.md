@@ -1,56 +1,65 @@
 # Rubik's Cube Solver
 
-Hosted Application
-[Application Link](https://cubesolver.streamlit.app/)
-
 ## Overview
 
-This project is a web application built using Streamlit that provides a user-friendly interface for solving Rubik's Cubes of sizes 2x2 and 3x3. Users can input the scrambled state of the cube by selecting colors for each face and then choose from different solving algorithms to find the solution.
+A Rubik's Cube solver with a FastAPI backend supporting 2x2 and 3x3 cubes with multiple solving algorithms (IDDFS, IDA\*, BFS).
 
-## Features
+## API Endpoints
 
-- **Interactive Color Picker**: Easily select colors for each face of the cube using a color picker interface.
-- **Multiple Solving Algorithms**: Choose from three different algorithms for solving the cube:
-  - Iterative Deepening Depth-First Search (IDDFS)
-  - Iterative Deepening A* (IDA*)
-  - Breadth-First Search (BFS)
-- **Performance Metrics**: Displays the time taken to find the solution.
-- **Visual Feedback**: Features like balloons to celebrate when a solution is found.
+| Method | Path            | Description                    |
+| ------ | --------------- | ------------------------------ |
+| POST   | `/solve/3x3`    | Solve a 3x3 Rubik's Cube       |
+| POST   | `/solve/2x2`    | Solve a 2x2 Rubik's Cube       |
 
-## Technologies Used
+Refer to the API Docs in `http://localhost:8000/docs` after installation.
 
-- **Python** - The programming language used for this project.
-- **Streamlit** - A Python library for creating web applications quickly.
-- Custom algorithms implemented for solving Rubik's Cubes (IDDFS, IDA*, BFS).
 
-## Installation
+## Tech Stack
 
-To run this project locally, follow these steps:
+- **Python 3.14+**
+- **FastAPI** - Web framework
+- **uv** - Python package manager
 
-1. Clone the repository:
+## Setup the API server
+### With docker
 
-   ```bash
-   git clone https://github.com/Astrasv/CubeSolver.git
-   cd CubeSolver
-   ```
+```bash
+git clone https://github.com/Astrasv/CubeSolver.git
+cd CubeSolver
+docker compose up --build
+```
 
-2. Install the required dependencies:
+The API will be available at `http://localhost:8000`.
 
-   ```bash
-   pip install streamlit
-   ```
+### Without docker
+#### 1. Install uv
 
-3. Run the Streamlit app:
+**macOS / Linux:**
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
 
-   ```bash
-   streamlit run main.py
-   ```
+**Windows (PowerShell):**
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
 
-## Usage
+#### 2. Clone and sync dependencies
 
-1. Open your web browser and go to `http://localhost:8501` to access the application.
-2. Select the cube size (2x2 or 3x3).
-3. Use the color picker to set the colors of each face of the cube.
-4. Choose the solving algorithm from the dropdown menu.
-5. Click the "Solve Cube" button to find the solution.
-6. The solution steps will be displayed along with the time taken to solve the cube.
+```bash
+git clone https://github.com/Astrasv/CubeSolver.git
+cd CubeSolver
+uv sync
+```
+
+#### 3. Run the API
+
+```bash
+uv run fastapi dev app/main.py
+```
+
+The API will be available at `http://localhost:8000`. Visit `http://localhost:8000/docs` for the interactive Swagger documentation.
+
+
+## Run with streamlit
+If you want to quickly fiddle around with the logics, use `uv run streamlit_webpage.py` command to launch a streamlit webpage
